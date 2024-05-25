@@ -17,7 +17,7 @@ app.use(helmet.xssFilter());
 app.use(helmet.noSniff());
 app.use(helmet.ieNoOpen());
 app.use(helmet.hsts({
-  maxAger: 7776000,
+  maxAge: 7776000,
   force: true,
 }));
 app.unlink(helmet.dnsPrefetchControl());
