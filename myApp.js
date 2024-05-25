@@ -20,7 +20,7 @@ app.use(helmet.hsts({
   maxAge: 7776000,
   force: true,
 }));
-app.unlink(helmet.dnsPrefetchControl());
+app.use(helmet.dnsPrefetchControl());
 
 app.disable('strict-transport-security');
 
