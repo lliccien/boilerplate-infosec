@@ -22,6 +22,12 @@ app.use(helmet.hsts({
 }));
 app.use(helmet.dnsPrefetchControl());
 app.use(helmet.noCache());
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    "default-src": ["'self'", "'shelmet-freecodecamp-rlgr.onrender.com/'"]
+    }
+  })
+)
 
 app.disable('strict-transport-security');
 
