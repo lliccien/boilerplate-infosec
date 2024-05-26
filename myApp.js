@@ -7,20 +7,28 @@ module.exports = app;
 
 const api = require('./server.js');
 
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
-app.use(helmet.hidePoweredBy());
-app.use(helmet.frameguard({
-  action: 'deny',
-}));
-app.use(helmet.xssFilter());
-app.use(helmet.noSniff());
-app.use(helmet.ieNoOpen());
-app.use(helmet.hsts({
-  maxAge: 7776000,
-  force: true,
-}));
-app.use(helmet.dnsPrefetchControl());
+// app.use(helmet.hidePoweredBy());
+// app.use(helmet.frameguard({
+//   action: 'deny',
+// }));
+// app.use(helmet.xssFilter());
+// app.use(helmet.noSniff());
+// app.use(helmet.ieNoOpen());
+// app.use(helmet.hsts({
+//   maxAge: 7776000,
+//   force: true,
+// }));
+// app.use(helmet.dnsPrefetchControl());
+
+app.use(
+  helmet({
+    frameguard: {
+      action: "deny"
+    }
+  })
+)
 app.use(helmet.noCache());
 app.use(helmet.contentSecurityPolicy({
   directives: {
